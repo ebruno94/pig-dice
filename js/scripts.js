@@ -60,27 +60,37 @@ var Die = {
   }
 };
 
+var defaultDisplay = function() {
+  $("#formContainer, #activePlayerDisplay, #dieContainerDisplay, #totalPoints, #instructionsContainer, #resetContainer, #winnerContainer").addClass("hidden");
+  $("#player2TurnTotal").addClass("opaqueHidden");
+};
+
 var updateGame = function(){
-  $("#turnTotal").text(Game.turnPoints);
+  $(".turnTotal").text(Game.turnPoints);
   $("#player1NameDisplay").text(player1.points);
   $("#player2NameDisplay").text(player2.points);
+  $(".playerTurnTotal").toggleClass("opaqueHidden");
   if (Game.checkIfWin()){
-    $("#gameContainer").hide();
-    $("#winnerContainer").show();
+    $("#gameContainer").addClass("hidden");
+    $("#winnerContainer").removeClass("hidden");
     $("#winner").text(Game.currentPlayer.name + " wins!");
   };
 }
+
+var startGame = function() {
+  $("#gameContainer, #activePlayerDisplay, #dieContainerDisplay, #totalPoints, #resetContainer").removeClass("hidden");
+  $("#nameInputForm").addClass("hidden");
+  $("#startGame").addClass("hidden");
+  $("#winnerContainer").addClass("hidden");
+  $("#player1NameDisplay").text(player1.name);
+  $("#player2NameDisplay").text(player2.name);
+  Game.changeCurrentPlayer();
+  $("#activePlayer").text(Game.currentPlayer.name + "'s turn!");
+};
+
 $(document).ready(function() {
-  var startGame = function() {
-    $("#gameContainer, #activePlayerDisplay, #dieContainerDisplay, #totalPoints, #resetContainer").show();
-    $("#nameInputForm").hide();
-    $("#startGame").hide();
-    $("#winnerContainer").hide();
-    $("#player1NameDisplay").text(player1.name);
-    $("#player2NameDisplay").text(player2.name);
-    Game.changeCurrentPlayer();
-    $("#activePlayer").text(Game.currentPlayer.name + "'s turn!");
-  };
+
+  defaultDisplay();
 
   $("#nameInputForm").submit(function(event) {
     var player1Name = $("#player1Name").val();
@@ -91,15 +101,15 @@ $(document).ready(function() {
   });
 
   $("#startGame").click(function() {
-    $("#formContainer").show();
-    $("#instructionsContainer").hide();
-    $(this).hide();
+    $("#formContainer").removeClass("hidden");
+    $("#instructionsContainer").addClass("hidden");
+    $(this).addClass("hidden");
   });
 
   $("#roll").click(function(){
     Die.roll();
     // Display value and image.
-    $("#turnTotal").text(Game.turnPoints);
+    $(".turnTotal").text(Game.turnPoints);
   });
 
   $("#hold").click(function(){
@@ -107,12 +117,13 @@ $(document).ready(function() {
     updateGame();
     Game.changeCurrentPlayer();
     $("#activePlayer").text(Game.currentPlayer.name + "'s turn!");
-    $("#turnTotal").text(Game.turnPoints);
+    $(".turnTotal").text(Game.turnPoints);
+
   });
 
-  $("#reset").click(function(){
+  $(".reset").click(function(){
     if(confirm("Are you sure you want to reset the game?")){
-      location.reset();
+      location.reload();
     };
   });
 
@@ -125,7 +136,7 @@ $(document).ready(function() {
   });
 
   $("#hideInstructions").click(function(){
-    $("#instructionsContainer").hide();
+    $("#instructionsContainer").addClass("hidden");
   });
 
 });

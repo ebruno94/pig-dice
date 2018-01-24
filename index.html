@@ -15,7 +15,7 @@
     </div>
 
 <!-- Create Game Container -->
-    <div class="container-flex" id="gameContainer">
+    <div class="container" id="gameContainer">
 
     <!-- Start Game and Instructions Buttons -->
       <div class="row" id="startGameInstructionsRow">
@@ -30,17 +30,19 @@
       <!-- Form for users to input names -->
 
       <div class="row startHidden" id="formContainer">
-        <form id="nameInputForm">
-          <div class="form-group">
-            <label for="player1">Player 1 Name: </label>
-            <input type="text" id="player1Name">
-          </div>
-          <div class="form-group">
-            <label for="player2">Player 2 Name: </label>
-            <input type="text" id="player2Name">
-          </div>
-          <button type="submit" id="submitForm" class="btn">Start Game!</button>
-        </form>
+        <div class="col-md-12">
+          <form id="nameInputForm">
+            <div class="form-group">
+              <label for="player1">Player 1 Name: </label>
+              <input type="text" id="player1Name">
+            </div>
+            <div class="form-group">
+              <label for="player2">Player 2 Name: </label>
+              <input type="text" id="player2Name">
+            </div>
+            <button type="submit" id="submitForm" class="btn">Start Game!</button>
+          </form>
+        </div>
       </div>
 
 <!-- Active Player Display -->
@@ -53,30 +55,20 @@
 <!-- //Turn Totals and Die Container -->
       <div class="row startHidden" id="dieContainerDisplay">
 
-        <div class="col-md-3" id="player1TurnTotal">
+        <div class="col-md-3 playerTurnTotal" id="player1TurnTotal">
           <h3>Player 1 Turn Total</h3>
-          <p id="turnTotal"></p>
+          <p class="turnTotal"></p>
         </div>
 
         <div class="col-md-6" id="dieContainer">
-          <div class="row">
-            <div class="col-md-12">
-              <img src="" alt="" id="dieImage">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <button type="button" class="btn" id="roll">Roll</button>
-            </div>
-            <div class="col-md-6">
-              <button type="button" class="btn" id="hold">Hold</button>
-            </div>
-          </div>
+          <img src="" alt="" id="dieImage">
+          <button type="button" class="btn" id="roll">Roll</button>
+          <button type="button" class="btn" id="hold">Hold</button>
         </div>
 
-        <div class="col-md-3" id="player2TurnTotal">
+        <div class="col-md-3 playerTurnTotal" id="player2TurnTotal">
           <h3>Player 2 Turn Total</h3>
-          <p id="turnTotal"></p>
+          <p class="turnTotal"></p>
         </div>
 
       </div>
@@ -113,7 +105,7 @@
     </div>
 
 <!-- Reset Button  -->
-    <div class="container-flex startHidden" id="resetContainer">
+    <div class="container startHidden" id="resetContainer">
       <div class="row">
         <div class="col-md-12">
           <button type="button" class="btn reset">Reset Game</button>
@@ -122,7 +114,7 @@
     </div>
 
 <!-- Display Winner -->
-    <div class="container-flex startHidden" id="winnerContainer">
+    <div class="container startHidden" id="winnerContainer">
       <div class="row">
         <div class="col-md-12">
           <h1 id="winner"></h1>
