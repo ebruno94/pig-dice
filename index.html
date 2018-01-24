@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/scripts.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <div class="jumbotron">
+      <h1>Pig-Dice</h1>
+    </div>
+
+<!-- Create Game Container -->
+    <div class="container-flex" id="gameContainer">
+
+    <!-- Start Game and Instructions Buttons -->
+      <div class="row">
+        <div class="col-md-6">
+          <button type="button" class="btn" id="startGame">Start Game</button>
+        </div>
+        <div class="col-md-6">
+          <button type="button" class="btn" id="showInstructions">Instructions</button>
+        </div>
+      </div>
+
+<!-- Active Player Display -->
+      <div class="row">
+        <div class="col-md-12">
+          <h2 id="activePlayer"></h2>
+        </div>
+      </div>
+
+<!-- //Turn Totals and Die Container -->
+      <div class="row">
+
+        <div class="col-md-3" id="player1TurnTotal">
+          <h3>Player 1 Turn Total</h3>
+          <p id="turnTotal"></p>
+        </div>
+
+        <div class="col-md-6" id="dieContainer">
+          <div class="row">
+            <div class="col-md-12">
+              <img src="" alt="" id="dieImage">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <button type="button" class="btn" id="roll">Roll</button>
+            </div>
+            <div class="col-md-6">
+              <button type="button" class="btn" id="hold">Hold</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3" id="player2TurnTotal">
+          <h3>Player 2 Turn Total</h3>
+          <p id="turnTotal"></p>
+        </div>
+
+      </div>
+
+<!-- Players' total points -->
+      <div class="row" id="totalPoints">
+        <div class="col-md-3" id="player1TotalPointsContainer">
+          <h3 id="player1TotalPoints"></h3>
+          <p>Player 1</p>
+        </div>
+        <div class="col-md-6" id="empty">
+        </div>
+        <div class="col-md-3" id="player2TotalPointsContainer">
+          <h3 id="player2TotalPoints"></h3>
+          <p>Player 2</p>
+        </div>
+      </div>
+
+<!-- Instructions -->
+      <div id="instructionsContainer">
+        <div class="row">
+          <div class="col-md-12">
+            <h3>Pig-Dice Instructions</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <button type="button" class="btn" id="hideInstructions">Hide Instructions</button>
+          </div>
+        </div>
+      </div>
+
+<!-- Reset Button  -->
+    <div class="container-flex" id="resetContainer">
+      <div class="row">
+        <div class="col-md-12">
+          <button type="button" class="btn reset">Reset Game</button>
+        </div>
+      </div>
+    </div>
+
+<!-- Display Winner -->
+    <div class="container-flex" id="winnerContainer">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 id="winner"></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <button type="button" class="btn reset">Play Again</button>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
