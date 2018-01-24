@@ -44,10 +44,13 @@ var player2 = {
 
 var Die = {
   value: 0,
+  dieImages: ["img/die1.png", "img/die2.png", "img/die3.png", "img/die4.png", "img/die5.png", "img/die6.png"],
   roll: function(){
     this.value = Math.ceil(Math.random() * 6);
+    this.changeActiveImage();
     if (this.value === 1){
       this.value = 0;
+      alert("Oops! You rolled a one! Feels bad man ... Other player's turn. Good luck next time!")
       Game.changeCurrentPlayer();
       updateGame();
       $("#activePlayer").text(Game.currentPlayer.name + "'s turn!");
@@ -57,11 +60,14 @@ var Die = {
   },
   hold: function(){
     Game.currentPlayer.points += Game.turnPoints;
+  },
+  changeActiveImage: function() {
+    $("#dieImage").attr("src", this.dieImages[this.value-1]);
   }
 };
 
 var defaultDisplay = function() {
-  $("#formContainer, #activePlayerDisplay, #dieContainerDisplay, #totalPoints, #instructionsContainer, #resetContainer, #winnerContainer").addClass("hidden");
+  $("#formContainer, #gameInterface, #activePlayerDisplay, #dieContainerDisplay, #totalPoints, #resetContainer, #winnerContainer").addClass("hidden");
   $("#player2TurnTotal").addClass("opaqueHidden");
 };
 
@@ -78,7 +84,7 @@ var updateGame = function(){
 }
 
 var startGame = function() {
-  $("#gameContainer, #activePlayerDisplay, #dieContainerDisplay, #totalPoints, #resetContainer").removeClass("hidden");
+  $("#gameContainer, #gameInterface, #activePlayerDisplay, #dieContainerDisplay, #totalPoints, #resetContainer").removeClass("hidden");
   $("#nameInputForm").addClass("hidden");
   $("#startGame").addClass("hidden");
   $("#winnerContainer").addClass("hidden");
@@ -102,7 +108,6 @@ $(document).ready(function() {
 
   $("#startGame").click(function() {
     $("#formContainer").removeClass("hidden");
-    $("#instructionsContainer").addClass("hidden");
     $(this).addClass("hidden");
   });
 
@@ -132,11 +137,11 @@ $(document).ready(function() {
   });
 
   $("#showInstructions").click(function(){
-    $("#instructionsContainer").toggle();
+    $("#instructionsContainer").slideToggle();
   });
 
   $("#hideInstructions").click(function(){
-    $("#instructionsContainer").addClass("hidden");
+    $("#instructionsContainer").slideToggle();
   });
 
 });
