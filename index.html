@@ -18,7 +18,7 @@
     <div class="container-flex" id="gameContainer">
 
     <!-- Start Game and Instructions Buttons -->
-      <div class="row">
+      <div class="row" id="startGameInstructionsRow">
         <div class="col-md-6">
           <button type="button" class="btn" id="startGame">Start Game</button>
         </div>
@@ -27,15 +27,31 @@
         </div>
       </div>
 
+      <!-- Form for users to input names -->
+
+      <div class="row startHidden" id="formContainer">
+        <form id="nameInputForm">
+          <div class="form-group">
+            <label for="player1">Player 1 Name: </label>
+            <input type="text" id="player1Name">
+          </div>
+          <div class="form-group">
+            <label for="player2">Player 2 Name: </label>
+            <input type="text" id="player2Name">
+          </div>
+          <button type="submit" id="submitForm" class="btn">Start Game!</button>
+        </form>
+      </div>
+
 <!-- Active Player Display -->
-      <div class="row">
+      <div class="row startHidden" id="activePlayerDisplay">
         <div class="col-md-12">
           <h2 id="activePlayer"></h2>
         </div>
       </div>
 
 <!-- //Turn Totals and Die Container -->
-      <div class="row">
+      <div class="row startHidden" id="dieContainerDisplay">
 
         <div class="col-md-3" id="player1TurnTotal">
           <h3>Player 1 Turn Total</h3>
@@ -66,21 +82,21 @@
       </div>
 
 <!-- Players' total points -->
-      <div class="row" id="totalPoints">
+      <div class="row startHidden" id="totalPoints">
         <div class="col-md-3" id="player1TotalPointsContainer">
           <h3 id="player1TotalPoints"></h3>
-          <p>Player 1</p>
+          <p>Player 1: <span id="player1NameDisplay"></span></p>
         </div>
         <div class="col-md-6" id="empty">
         </div>
         <div class="col-md-3" id="player2TotalPointsContainer">
           <h3 id="player2TotalPoints"></h3>
-          <p>Player 2</p>
+          <p>Player 2: <span id="player2NameDisplay"></span></p>
         </div>
       </div>
 
 <!-- Instructions -->
-      <div id="instructionsContainer">
+      <div class="startHidden" id="instructionsContainer">
         <div class="row">
           <div class="col-md-12">
             <h3>Pig-Dice Instructions</h3>
@@ -94,8 +110,10 @@
         </div>
       </div>
 
+    </div>
+
 <!-- Reset Button  -->
-    <div class="container-flex" id="resetContainer">
+    <div class="container-flex startHidden" id="resetContainer">
       <div class="row">
         <div class="col-md-12">
           <button type="button" class="btn reset">Reset Game</button>
@@ -104,7 +122,7 @@
     </div>
 
 <!-- Display Winner -->
-    <div class="container-flex" id="winnerContainer">
+    <div class="container-flex startHidden" id="winnerContainer">
       <div class="row">
         <div class="col-md-12">
           <h1 id="winner"></h1>
@@ -112,7 +130,7 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <button type="button" class="btn reset">Play Again</button>
+          <button type="button" class="btn" id="playAgain">Play Again</button>
         </div>
       </div>
     </div>
