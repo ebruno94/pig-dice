@@ -113,7 +113,6 @@ $(document).ready(function() {
 
   $("#roll").click(function(){
     Die.roll();
-    // Display value and image.
     $(".turnTotal").text(Game.turnPoints);
   });
 
