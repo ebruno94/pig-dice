@@ -1,4 +1,4 @@
-# Beep Boop
+# PIG DICE
 
 #### LET'S PLAY PIG-DICE! 1/24/2018
 
